@@ -14,8 +14,8 @@ import com.example.demo.service.demo.TestService;
  * @version 1.0
  * @date 2019/1/22 14:20
  */
-@Service(version="${registry.version}")
-//@Service(version="1.0.0")
+//@Service(version="${registry.version}")
+@Service(version="1.0.0")
 //@Service
 public class TestServiceImpl implements TestService {
 
