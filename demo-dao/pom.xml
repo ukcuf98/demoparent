@@ -8,10 +8,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>demo-baseapi</artifactId>
+	<artifactId>demo-dao</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo-baseapi</name>
-	<description>demo-baseapi</description>
+	<name>demo-dao</name>
+	<description>demo-dao</description>
 
 	<dependencies>
 		<dependency>
@@ -19,6 +19,16 @@
 			<artifactId>demo-model</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>demo-util</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.0.0</version>
+		</dependency>
 	</dependencies>
 </project>

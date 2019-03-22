@@ -32,22 +32,54 @@
 			<groupId>io.dubbo.springboot</groupId>
 			<artifactId>spring-boot-starter-dubbo</artifactId>
 			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.zookeeper</groupId>
-			<artifactId>zookeeper</artifactId>
-			<version>3.4.6</version>
 			<exclusions>
 				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
 				</exclusion>
-				<!--<exclusion>-->
-				<!--<groupId>log4j</groupId>-->
-				<!--<artifactId>log4j</artifactId>-->
-				<!--</exclusion>-->
+				<!--去除dubbo依赖-->
+				<exclusion>
+					<groupId>com.alibaba</groupId>
+					<artifactId>dubbo</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
+		<!--重新添加2.6.5的dubbo依赖-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>2.6.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.32.Final</version>
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.apache.zookeeper</groupId>-->
+			<!--<artifactId>zookeeper</artifactId>-->
+			<!--<version>3.5.3-beta</version>-->
+			<!--<exclusions>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.slf4j</groupId>-->
+					<!--<artifactId>slf4j-log4j12</artifactId>-->
+				<!--</exclusion>-->
+				<!--&lt;!&ndash;<exclusion>&ndash;&gt;-->
+				<!--&lt;!&ndash;<groupId>log4j</groupId>&ndash;&gt;-->
+				<!--&lt;!&ndash;<artifactId>log4j</artifactId>&ndash;&gt;-->
+				<!--&lt;!&ndash;</exclusion>&ndash;&gt;-->
+			<!--</exclusions>-->
+		<!--</dependency>-->
+		<dependency>
+			<groupId>org.apache.curator</groupId>
+			<artifactId>curator-framework</artifactId>
+			<version>4.0.1</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>demo-baseapi</artifactId>
@@ -63,12 +95,41 @@
 			<artifactId>demo-model</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>demo-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 		<!--&lt;!&ndash;log4j2&ndash;&gt;-->
 		<!--<dependency>-->
 		<!--<groupId>org.springframework.boot</groupId>-->
 		<!--<artifactId>spring-boot-starter-log4j2</artifactId>-->
 		<!--</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.15</version>
+		</dependency>
+		<!--&lt;!&ndash; https://mvnrepository.com/artifact/com.alibaba/druid &ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>com.alibaba</groupId>-->
+			<!--<artifactId>druid</artifactId>-->
+			<!--<version>1.1.13</version>-->
+		<!--</dependency>-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.10</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -77,7 +138,28 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
 		</plugins>
-	</build>
 
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
 </project>

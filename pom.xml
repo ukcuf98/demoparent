@@ -31,6 +31,7 @@
 		<module>demo-api</module>
 		<module>demo-server</module>
 		<module>demo-baseapi</module>
+		<module>demo-dao</module>
 		<module>demo-util</module>
 		<module>demo-model</module>
 	</modules>

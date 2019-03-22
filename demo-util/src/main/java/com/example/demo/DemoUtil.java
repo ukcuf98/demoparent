@@ -18,6 +18,5 @@ public class DemoUtil {
 	}
 
 	public static void main(String[] args) {
-
 	}
 }

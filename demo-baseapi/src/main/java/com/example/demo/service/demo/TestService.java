@@ -1,5 +1,7 @@
 package com.example.demo.service.demo;
 
+import com.example.demo.model.TestModel;
+
 /**
  * <p>Title: </p>
  * <p>
@@ -13,5 +15,24 @@ package com.example.demo.service.demo;
  */
 public interface TestService {
 
+	/**
+	 * 生产字符串
+	 * @param str
+	 * @return
+	 */
 	String buildStr(String str);
+
+	/**
+	 * 按id查询
+	 * @param id
+	 * @return
+	 */
+	TestModel queryById(String id);
+
+	/**
+	 * 按id查询
+	 * @param id
+	 * @return
+	 */
+	TestModel queryById_slave(String id);
 }
