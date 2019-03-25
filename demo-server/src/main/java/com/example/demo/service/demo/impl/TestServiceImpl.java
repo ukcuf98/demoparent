@@ -1,12 +1,12 @@
 package com.example.demo.service.demo.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.example.demo.DemoUtil;
 import com.example.demo.annotation.DataSource;
 import com.example.demo.common.DataSourceInstances;
 import com.example.demo.dao.TestMapper;
 import com.example.demo.model.TestModel;
 import com.example.demo.service.demo.TestService;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -19,9 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @version 1.0
  * @date 2019/1/22 14:20
  */
-//@Service(version="${registry.version}")
-@Service(version="1.0.0", interfaceName = "com.example.demo.service.demo.TestService")
-//@Service
+@Service(version="1.0.0")
 public class TestServiceImpl implements TestService {
 
 	@Autowired

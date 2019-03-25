@@ -1,11 +1,11 @@
 package com.example.demo.controller.demo;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.example.demo.model.TestModel;
 import com.example.demo.service.demo.TestService;
 import com.example.demo.vo.TestVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,8 +30,7 @@ import java.util.List;
 @Api("测试controller")
 public class TestController {
 
-	@Reference(version="1.0.0",timeout = 30000)
-//	@Reference
+	@Reference(version="1.0.0")
 	private TestService testService;
 
 	/**

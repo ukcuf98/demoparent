@@ -3,6 +3,7 @@ package com.example.demo.core;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
 /**
  * <p>Title: </p>
@@ -14,9 +15,14 @@ import org.springframework.context.ApplicationContextAware;
  * @version 1.0
  * @date 2018/6/30 17:03
  */
-public class SpringContextUtil implements ApplicationContextAware {
+@Component
+public class SpringContextUtil
+		implements ApplicationContextAware
+{
 
-	private static ApplicationContext applicationContext; // Spring应用上下文环境
+	// Spring应用上下文环境
+	private static ApplicationContext applicationContext;
+	private static final Object lock = new Object();
 
 	/*
 	 * 实现了ApplicationContextAware 接口，必须实现该方法；
@@ -24,6 +30,11 @@ public class SpringContextUtil implements ApplicationContextAware {
 	 */
 	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {
+		synchronized (lock) {
+			if(null == SpringContextUtil.applicationContext){
+				SpringContextUtil.applicationContext = applicationContext;
+			}
+		}
 		SpringContextUtil.applicationContext = applicationContext;
 	}
 

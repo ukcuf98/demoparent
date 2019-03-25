@@ -15,6 +15,8 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<dubbo.version>2.7.0</dubbo.version>
+		<curator_version>4.0.1</curator_version>
 	</properties>
 
 	<dependencies>
@@ -29,57 +31,31 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>io.dubbo.springboot</groupId>
-			<artifactId>spring-boot-starter-dubbo</artifactId>
-			<version>1.0.0</version>
-			<exclusions>
-				<exclusion>
-					<groupId>log4j</groupId>
-					<artifactId>log4j</artifactId>
-				</exclusion>
-				<!--去除dubbo依赖-->
-				<exclusion>
-					<groupId>com.alibaba</groupId>
-					<artifactId>dubbo</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!--重新添加2.6.5的dubbo依赖-->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>dubbo</artifactId>
-			<version>2.6.5</version>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo-spring-boot-starter</artifactId>
+			<version>2.7.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.alibaba.spring/spring-context-support -->
 		<dependency>
-			<groupId>io.netty</groupId>
-			<artifactId>netty-all</artifactId>
-			<version>4.1.32.Final</version>
-		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>org.apache.zookeeper</groupId>-->
-			<!--<artifactId>zookeeper</artifactId>-->
-			<!--<version>3.5.3-beta</version>-->
-			<!--<exclusions>-->
-				<!--<exclusion>-->
-					<!--<groupId>org.slf4j</groupId>-->
-					<!--<artifactId>slf4j-log4j12</artifactId>-->
-				<!--</exclusion>-->
-				<!--&lt;!&ndash;<exclusion>&ndash;&gt;-->
-				<!--&lt;!&ndash;<groupId>log4j</groupId>&ndash;&gt;-->
-				<!--&lt;!&ndash;<artifactId>log4j</artifactId>&ndash;&gt;-->
-				<!--&lt;!&ndash;</exclusion>&ndash;&gt;-->
-			<!--</exclusions>-->
-		<!--</dependency>-->
-		<dependency>
-			<groupId>org.apache.curator</groupId>
-			<artifactId>curator-framework</artifactId>
-			<version>4.0.1</version>
+			<groupId>com.alibaba.spring</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>1.0.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>${dubbo.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.curator</groupId>
+			<artifactId>curator-recipes</artifactId>
+			<version>${curator_version}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>demo-baseapi</artifactId>
@@ -101,11 +77,6 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
-		<!--&lt;!&ndash;log4j2&ndash;&gt;-->
-		<!--<dependency>-->
-		<!--<groupId>org.springframework.boot</groupId>-->
-		<!--<artifactId>spring-boot-starter-log4j2</artifactId>-->
-		<!--</dependency>-->
 		<!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
@@ -118,12 +89,6 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.15</version>
 		</dependency>
-		<!--&lt;!&ndash; https://mvnrepository.com/artifact/com.alibaba/druid &ndash;&gt;-->
-		<!--<dependency>-->
-			<!--<groupId>com.alibaba</groupId>-->
-			<!--<artifactId>druid</artifactId>-->
-			<!--<version>1.1.13</version>-->
-		<!--</dependency>-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid-spring-boot-starter</artifactId>

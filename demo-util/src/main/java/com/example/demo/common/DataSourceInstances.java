@@ -11,6 +11,6 @@ package com.example.demo.common;
  * @date 2018/6/30 12:11
  */
 public class DataSourceInstances {
-	public static final String MASTER="dataSourceMysqlMaster";
-	public static final String SLAVE="dataSourceMysqlSlave";
+	public static final String MASTER="masterDataSource";
+	public static final String SLAVE="slaveDataSource";
 }
