@@ -77,4 +77,29 @@ public class TestController {
 		}
 		return list;
 	}
+
+	/**
+	 * 设置缓存
+	 * @param key
+	 * @param value
+	 * @return
+	 */
+	@RequestMapping(value = "/putredis", method = RequestMethod.GET)
+	@ApiOperation(value = "/putredis", notes = "设置缓存", httpMethod = "GET", tags = {"test"})
+	public Object putredis(@RequestParam String key,@RequestParam String value){
+		String result = testService.setCache(key,value);
+		return result;
+	}
+
+	/**
+	 * 取缓存
+	 * @param key
+	 * @return
+	 */
+	@RequestMapping(value = "/getredis", method = RequestMethod.GET)
+	@ApiOperation(value = "/getredis", notes = "设置缓存", httpMethod = "GET", tags = {"test"})
+	public Object getRedis(@RequestParam String key){
+		String result = testService.getCache(key);
+		return result;
+	}
 }

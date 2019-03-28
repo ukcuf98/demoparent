@@ -35,4 +35,19 @@ public interface TestService {
 	 * @return
 	 */
 	TestModel queryById_slave(String id);
+
+	/**
+	 * set redis值
+	 * @param key
+	 * @param value
+	 * @return
+	 */
+	String setCache(String key,String value);
+
+	/**
+	 * 或者redis值
+	 * @param key
+	 * @return
+	 */
+	String getCache(String key);
 }

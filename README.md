@@ -14,7 +14,7 @@ springboot示例
 > 运行环境
 
 * zookeeper安装版本3.5.4(否则服务无法注册导致报错)
-
+* Redis为哨兵模式(使用集群模式对应api需要调整) 
 
 >项目运行
 
@@ -22,6 +22,6 @@ springboot示例
 * api与server项目里配置项spring.dubbo.registry.address可修改为zookeeper://127.0.0.1:2181
 * 项目swagger文档地址 http://localhost:8081/swagger-ui.html
 * 对于需要切换数据源的地方 service实现方法需要使用@DataSource(DataSourceInstances.SLAVE)注解，括号内为表示要切换为哪个数据源
-
+* ProjConstant为对应application.property里的参数，value标签内参数名可做修改
 
 

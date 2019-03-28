@@ -2,6 +2,7 @@ package com.example.demo.service.demo.impl;
 
 import com.example.demo.DemoUtil;
 import com.example.demo.annotation.DataSource;
+import com.example.demo.cache.RedisCache;
 import com.example.demo.common.DataSourceInstances;
 import com.example.demo.dao.TestMapper;
 import com.example.demo.model.TestModel;
@@ -43,5 +44,15 @@ public class TestServiceImpl implements TestService {
 	@DataSource(DataSourceInstances.SLAVE)
 	public TestModel queryById_slave(String id) {
 		return testMapper.queryById_slave(id);
+	}
+
+	@Override
+	public String setCache(String key, String value) {
+		return RedisCache.getInstance().putString(key,value);
+	}
+
+	@Override
+	public String getCache(String key) {
+		return RedisCache.getInstance().getString(key);
 	}
 }
